@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+
+        <title>Müşteri Listele</title>
+        <h:form>
+            <p:dataTable id="customers" var="customer" value="#{customerMB.customerList}">
+                <f:facet name="header">
+                    Müşteriler
+                </f:facet>
+                <p:column headerText="ID">
+                    <h:outputText value="#{customer.id}"/>
+                </p:column>
+                <p:column headerText="İsim">
+                    <h:outputText value="#{customer.name}"/>
+                </p:column>
+                <p:column headerText="Soyisim">
+                    <h:outputText value="#{customer.surname}"/>
+                </p:column>
+                <f:facet name="footer">
+                    Toplamda #{fn:length(customerMB.customerList)} müşteri var.
+                </f:facet>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

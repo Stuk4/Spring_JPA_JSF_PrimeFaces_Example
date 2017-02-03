@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+
+        <title>Müşteri Ekle</title>
+        <h:form>
+            <p:panel header="Müşteri Ekleme Panelii" id="panelForAddCustomer" styleClass="basePanel panelShadow" style="width: 30%" >
+                <h:panelGrid id="panelGridForAddCustomer" columns="3" cellspacing="5" styleClass="basePanelGrid" style="width: 70%">
+                    <p:inputText id="name" value="#{customerMB.customer.name}" required="true" requiredMessage="İsim girmediniz" style="width: 100%;"/>
+                    <p:watermark for="name" value="İsim giriniz" />
+                    <p:message for="name"/>
+
+                    <p:inputText id="surname" value="#{customerMB.customer.surname}" required="true" requiredMessage="Soyisim girmediniz" style="width: 100%;"/>
+                    <p:watermark for="surname" value="Soyisim giriniz" />
+                    <p:message for="surname"/>
+
+                    <p:commandButton type="submit" value="Ekle" action="#{customerMB.addCustomer}"
+                                     styleClass="basePanelButon" update="@form" ajax="false"/>
+                </h:panelGrid>
+            </p:panel>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

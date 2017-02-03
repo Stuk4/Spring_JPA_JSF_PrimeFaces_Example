@@ -1,0 +1,7 @@
+/*open sans*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic);
+
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 11.5px !important;
+    font-family: 'Open Sans', sans-serif;
+}
